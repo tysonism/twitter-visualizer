@@ -1,0 +1,30 @@
+// ---------------------------------------
+// This file contains basic grid mixins
+// ---------------------------------------
+
+.grid() {
+  display: grid;
+  grid-template-columns: 1fr @gutter-width-desktop minmax(auto, @max-width-desktop) @gutter-width-desktop 1fr;
+  width: 100%;
+
+  @media @tablet {
+    grid-template-columns: @gutter-width-tablet minmax(auto, @max-width-tablet) @gutter-width-tablet;
+  }
+
+  @media @phone {
+    grid-template-columns: @gutter-width-phone minmax(@min-width-phone, 100%) @gutter-width-phone;
+  }
+}
+
+.grid-center-column() {
+  grid-column: 3;
+
+  @media @tablet {
+    grid-column: 2 / span 1;
+  }
+
+  @media @phone {
+    grid-column: 2 / span 1;
+  }
+
+}
