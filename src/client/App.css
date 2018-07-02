@@ -1,0 +1,43 @@
+
+
+.title-text {
+  text-align: center;
+  margin-top: 15%;
+  position: relative;
+}
+
+.rocket {
+  transition: all 3s linear; 
+  animation: 'rocketAnimation' 3s forwards linear;
+  font-size: 4em;
+}
+
+.rocket-text {
+  font-size: 4em;
+  position: relative; 
+}
+
+@keyframes rocketAnimation {
+  from {
+    top: 0;
+    bottom: 0;
+  }
+  40% {
+    transform: rotate(720deg);
+    margin-top: 15%;
+  }
+  70% {
+    transform: rotate(1080);
+    margin-top: 15%;
+    background-color: red;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
