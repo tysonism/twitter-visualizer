@@ -54,12 +54,12 @@ export default class Canvas extends Component {
     let canvasWidth;
     let rowWidths = [0];
     images.forEach((imageElem) => {
-      // resizing if too large
       let targetHeight = imageElem.height;
       let targetWidth = imageElem.width;
       let widthCrop = 0;
       let heightCrop = 0;
       let scale = 1;
+      //resizing if too small
       if (targetHeight < maxImageHeight || targetWidth < maxImageWidth) {
         if (targetHeight < targetWidth) {
           scale = maxImageHeight / targetHeight;
@@ -72,6 +72,7 @@ export default class Canvas extends Component {
           targetHeight *= scale;
           heightCrop = targetHeight - maxImageHeight;
         }
+              // resizing if too large
       } else if (targetHeight > maxImageHeight || targetWidth > maxImageWidth) {
         if (targetHeight < targetWidth) {
           scale = maxImageHeight / targetHeight;
