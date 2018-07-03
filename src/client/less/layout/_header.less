@@ -8,12 +8,21 @@
   margin: 0 0 80px 0;
   padding: 50px 20px 0;
   background-color: @brand-secondary-color;
+  opacity: 0;
+  animation: fadeIn 0.4s forwards;
+  animation-delay: .3s;
+  animation-timing-function: linear;
 
   .header__branding {
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 0 30px 0;
+    opacity: 0;
+    transform-origin: center;
+    animation: bounceIn 0.4s forwards;
+    animation-delay: .7s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     .header__logo {
       width: 65px;
@@ -31,6 +40,11 @@
     text-align: center;
     line-height: 3.0rem;
     margin: 0;
+    opacity: 0;
+    transform-origin: center;
+    animation: slideUp 0.4s forwards;
+    animation-delay: .9s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   form {
@@ -40,6 +54,11 @@
     top: 35px;
     max-width: 1024px;
     width: 100%;
+    opacity: 0;
+    transform-origin: center;
+    animation: bounceIn 0.4s forwards;
+    animation-delay: 1.2s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     .header-form__input-container {
       position: relative;
@@ -69,6 +88,12 @@
       border: 5px solid white;
       border-radius: 50%;
       background: url(public/assets/img/logo.png) no-repeat;
+      opacity: 0;
+      transform-origin: center;
+      animation: bounceIn 0.4s forwards;
+      animation-delay: 1.5s;
+      animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: all .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
       &:hover {
         background-color: @brand-highlight-color;
