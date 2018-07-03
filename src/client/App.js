@@ -5,6 +5,7 @@ import { Route, Switch} from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
 import Gallery from './components/Gallery';
+import ProcessingPage from './components/ProcessingPage'; 
 import Footer from './components/Footer';
 import dummydata from './dummydata';
 
@@ -48,6 +49,7 @@ class App extends Component {
         <Footer text="© 2018 TweetCollage. All Rights Reserved." />
         </div>)
       } />
+      <Route exact to={'/processing/'} component={ProcessingPage} />
       </div>
     );
   }
