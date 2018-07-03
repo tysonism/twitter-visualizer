@@ -106,13 +106,20 @@ header form .header-form__button:hover {
 header form .header-form__button .header-form__button-img {
   width: 23px;
 }
-main .gallery {
+footer {
+  padding: 30px 20px;
+  margin: 50px 0 0 0;
+  background-color: #192739;
+  color: #327c92;
+  font-size: 1.2rem;
+}
+.gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 0  0 20px;
 }
-main .gallery-card {
+.gallery-card {
   display: inline-flex;
   flex-direction: column;
   position: relative;
@@ -128,47 +135,40 @@ main .gallery-card {
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-main .gallery-card:hover {
+.gallery-card:hover {
   -webkit-box-shadow: 0 6px 23px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 6px 23px 0 rgba(0, 0, 0, 0.1);
   top: -5px;
 }
-main .gallery-card:hover .gallery-card__details-twitter {
+.gallery-card:hover .gallery-card__details-twitter {
   color: #59899e;
 }
-main .gallery-card .gallery-card__image {
+.gallery-card .gallery-card__image {
   width: 100%;
   align-self: flex-start;
 }
-main .gallery-card .gallery-card__details {
+.gallery-card .gallery-card__details {
   display: flex;
   padding: 20px;
 }
-main .gallery-card .gallery-card__details-thumb {
+.gallery-card .gallery-card__details-thumb {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   margin: 0 15px 0 0;
 }
-main .gallery-card .gallery-card__details-content {
+.gallery-card .gallery-card__details-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   flex: 1;
 }
-main .gallery-card .gallery-card__details-twitter {
+.gallery-card .gallery-card__details-twitter {
   font-family: 'Poppins', helvetica, sans-serif;
   font-weight: 700;
   margin: 0 0 7px 0;
 }
-main .gallery-card .gallery-card__details-tweet {
+.gallery-card .gallery-card__details-tweet {
   font-size: 1.4rem;
   line-height: 1.9rem;
-}
-footer {
-  padding: 30px 20px;
-  margin: 50px 0 0 0;
-  background-color: #192739;
-  color: #327c92;
-  font-size: 1.2rem;
 }
