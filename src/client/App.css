@@ -120,9 +120,20 @@ input::placeholder {
   width: 65px;
   margin: 0 20px 0 0;
 }
+@media only screen and (max-width: 480px) {
+  .header .header__branding .header__logo {
+    width: 39px;
+    margin: 0 12px 0 0;
+  }
+}
 .header .header__branding .header__wordmark {
   max-width: 447px;
   width: 100%;
+}
+@media only screen and (max-width: 480px) {
+  .header .header__branding .header__wordmark {
+    max-width: 268px;
+  }
 }
 .header .header__intro {
   color: #fff;
@@ -264,6 +275,7 @@ input::placeholder {
   width: 100vw;
   height: 100vh;
   background-color: #6552a2;
+  overflow: hidden;
 }
 .progress .progress__content {
   display: flex;
@@ -287,9 +299,20 @@ input::placeholder {
   width: 45px;
   margin: 0 14px 0 0;
 }
+@media only screen and (max-width: 480px) {
+  .progress .progress__branding .progress__logo {
+    width: 39px;
+    margin: 0 12px 0 0;
+  }
+}
 .progress .progress__branding .progress__wordmark {
   max-width: 312px;
   width: 100%;
+}
+@media only screen and (max-width: 480px) {
+  .progress .progress__branding .progress__wordmark {
+    max-width: 268px;
+  }
 }
 .progress .progress__message {
   position: relative;
@@ -377,9 +400,20 @@ input::placeholder {
   width: 45px;
   margin: 0 14px 0 0;
 }
+@media only screen and (max-width: 480px) {
+  .result .result__branding .result__logo {
+    width: 39px;
+    margin: 0 12px 0 0;
+  }
+}
 .result .result__branding .result__wordmark {
   max-width: 312px;
   width: 100%;
+}
+@media only screen and (max-width: 480px) {
+  .result .result__branding .result__wordmark {
+    max-width: 268px;
+  }
 }
 .result .result__intro {
   text-align: center;
@@ -394,6 +428,11 @@ input::placeholder {
 .result .result__intro .result__intro-title {
   font-family: 'Poppins', helvetica, sans-serif;
   font-weight: 700;
+}
+@media only screen and (max-width: 480px) {
+  .result .result__intro .result__intro-title {
+    display: block;
+  }
 }
 .result .result-collage {
   display: flex;

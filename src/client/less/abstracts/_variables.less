@@ -20,3 +20,11 @@
 @brand-body-text-on-dark-color: #fff;
 @brand-footer-text: #7478d8;
 @brand-highlight-color: #c653ff;
+
+// Breakpoints
+@breakpoint-small-desktop: 960px;
+@breakpoint-tablet: 768px;
+@breakpoint-phone: 480px;
+@small-desktop: ~"only screen and (max-width: @{breakpoint-small-desktop})";
+@tablet: ~"only screen and (max-width: @{breakpoint-tablet})";
+@phone: ~"only screen and (max-width: @{breakpoint-phone})";

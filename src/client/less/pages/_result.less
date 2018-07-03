@@ -22,11 +22,20 @@
     .result__logo {
       width: 45px;
       margin: 0 14px 0 0;
+
+      @media @phone {
+        width: 39px;
+        margin: 0 12px 0 0;
+      }   
     }
 
     .result__wordmark {
       max-width: 312px;
       width: 100%;
+
+      @media @phone {
+        max-width: 268px;
+      }  
     }
   }
 
@@ -42,6 +51,10 @@
 
     .result__intro-title {
       .body-font-bold();
+
+      @media @phone {
+        display: block;
+      } 
     }
   }
 
