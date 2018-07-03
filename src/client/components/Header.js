@@ -16,7 +16,7 @@ export default function Header(props) {
         A picture is worth a thousand characters.<br />Turn your tweets into sharable art by
         entering a Twitter handle below.
       </div>
-      <form id="headerForm">
+      <form id="headerForm" onSubmit={props.handleSubmit}>
         <div className="header-form__input-container">
           <input
             id="inputTwitterHandle"
@@ -25,11 +25,12 @@ export default function Header(props) {
             placeholder="e.g., @LambdaSchool"
             value={props.searchInput}
             onChange={props.handleChange}
-            onKeyUp={event => {if (event.target.value==="enter") props.handleSubmit()}} />
+            onKeyPress={props.handleKeyPress} />
           <button className="header-form__button">
             <img className="header-form__button-img" src="public/assets/img/logo.png" onClick={props.handleSubmit}/>
           </button>
         </div>
+        <input type="submit" className='header-form__input-submit--invisible' onSubmit={props.handleSubmit}/>
       </form>
     </header>
   );
