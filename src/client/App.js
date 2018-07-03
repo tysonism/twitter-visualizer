@@ -5,9 +5,18 @@ import {
   Route, Switch, Link,
 } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header';
+import {
+  EPROTONOSUPPORT,
+} from 'constants';
+import {
+  ENGINE_METHOD_NONE,
+} from 'constants';
+import {
+  log,
+} from 'util';
+import axios from 'axios';
 import Gallery from './components/Gallery';
-import { log } from "util";
+import Header from './components/Header';
 import Progress from './components/Progress';
 import Footer from './components/Footer';
 import CollagePage from './components/CollagePage';
@@ -17,9 +26,11 @@ import dummydata from './dummydata';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.serverUrl = 'https://tweetcollage.herokuapp.com/api/tweets';
     this.state = {
       searchInput: '',
       cards: [],
+      queryResults: {results: [], user:'', id:''},
     };
     this.handleSearchInput = this.handleSearchInput.bind(this);
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
@@ -34,12 +45,38 @@ class App extends Component {
   handleSearchInput(event) {
     this.setState({
       searchInput: event.target.value,
+      queryResults: [],
     });
   }
 
   handleSearchSubmit(event) {
+    const context = this;
     event.preventDefault();
+    // axios
+    //   .post(this.serverUrl, this.state.searchInput)
+    //   .then((response) => {
+    //     this.setState({
+    //       queryResults: response.data,
+    //     }, () => { context.props.history.push(`/result/${response.data.id}`); });
+    //   })
+    //   .catch(err => console.log(err));
+
     this.props.history.push('/progress');
+    axios({
+      method: 'get',
+      url: `https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${this.state.searchInput}&size=medium&aspect=Wide`,
+      headers: {
+        'Ocp-Apim-Subscription-Key': 'c24662dcb15b4e9391b74fdf5279e2bb',
+      },
+    })
+      .then((response) => {
+        const move = () => { context.props.history.push(`/result/${context.state.queryResults.id}`); }
+        this.setState({ queryResults: {id: '01', user: '@batman', results: response.data}}, move);
+      })
+      .catch((response) => {
+        console.log('error :', response);
+      });
+    
   }
 
   render() {
@@ -62,10 +99,10 @@ class App extends Component {
             <div className="app">
               <CollagePage
                 {...routeProps}
-                cards={this.state.cards}
                 link={'make another'}
                 introTitle=", your collage is done!"
-                subTitle="Take a look . . ."
+                subTitle=" Take a look . . ."
+                queryResults={this.state.queryResults}
               />
               <footer>© 2018 TweetCollage. All Rights Reserved.</footer>
             </div>
@@ -80,32 +117,16 @@ class App extends Component {
                 {...routeProps}
                 cards={this.state.cards}
                 link={'home'}
-                introTitle=' '
+                introTitle=" "
                 subTitle="collage"
+                queryResults={this.state.queryResults}
               />
               <footer>© 2018 TweetCollage. All Rights Reserved.</footer>
             </div>
           )}
         />
         <Route
-          path="/generator"
-          render={() => (
-            <div className="App">
-              <Link to="/">Home</Link>
-              <Collage
-                query="heavy metal"
-                dimensions={{
-                  width: 1024,
-                  height: 512,
-                  columns: 5,
-                  rows: 2,
-                }}
-              />
-            </div>
-          )}
-        />
-        <Route
-          render={(routeProps) => (
+          render={routeProps => (
             <div className="app">
               <Header
                 searchInput={this.state.searchInput}
@@ -116,7 +137,6 @@ class App extends Component {
                 <Gallery {...routeProps} cards={this.state.cards} />
               </main>
               <Footer text="© 2018 TweetCollage. All Rights Reserved." />
-              <Link to="/generator">To Collage Generator</Link>
             </div>
           )}
         />
@@ -126,3 +146,4 @@ class App extends Component {
 }
 
 export default App;
+
