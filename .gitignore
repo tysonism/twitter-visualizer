@@ -3,6 +3,7 @@ node_modules
 dist
 *.log
 variables
+.package-lock.json
 
 # OS generated files #
 .DS_Store
