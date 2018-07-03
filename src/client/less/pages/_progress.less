@@ -6,6 +6,7 @@
   width: 100vw;
   height: 100vh;
   background-color: @brand-secondary-color;
+  overflow: hidden;
 
   .progress__content {
     display: flex;
@@ -29,11 +30,20 @@
     .progress__logo {
       width: 45px;
       margin: 0 14px 0 0;
+
+      @media @phone {
+        width: 39px;
+        margin: 0 12px 0 0;
+      }         
     }
 
     .progress__wordmark {
       max-width: 312px;
       width: 100%;
+
+      @media @phone {
+        max-width: 268px;
+      }  
     }
   }
 

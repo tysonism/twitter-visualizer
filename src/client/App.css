@@ -74,11 +74,11 @@ button {
   transition: all .3s linear;
 }
 input {
-  color: #484848;
+  color: #32004a;
 }
 input::-webkit-input-placeholder,
 input::placeholder {
-  color: #bed6de;
+  color: #cbace0;
 }
 .header {
   display: flex;
@@ -89,11 +89,21 @@ input::placeholder {
   width: 100vw;
   margin: 0 0 80px 0;
   padding: 50px 20px 0;
-  background-color: #59899e;
+  background-color: #6552a2;
   opacity: 0;
   animation: fadeIn 0.4s forwards;
   animation-delay: .3s;
   animation-timing-function: linear;
+  border-bottom: 5px solid #6552a2;
+}
+.header .header__bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
 }
 .header .header__branding {
   display: flex;
@@ -110,9 +120,20 @@ input::placeholder {
   width: 65px;
   margin: 0 20px 0 0;
 }
+@media only screen and (max-width: 480px) {
+  .header .header__branding .header__logo {
+    width: 39px;
+    margin: 0 12px 0 0;
+  }
+}
 .header .header__branding .header__wordmark {
   max-width: 447px;
   width: 100%;
+}
+@media only screen and (max-width: 480px) {
+  .header .header__branding .header__wordmark {
+    max-width: 268px;
+  }
 }
 .header .header__intro {
   color: #fff;
@@ -148,7 +169,7 @@ input::placeholder {
   height: 70px;
   padding: 20px 70px 20px 20px;
   border-radius: 35px;
-  border: 5px solid #59899e;
+  border: 5px solid #6552a2;
   outline: 0;
   font-size: 2rem;
 }
@@ -159,7 +180,7 @@ input::placeholder {
   z-index: 1;
   width: 56px;
   height: 56px;
-  background-color: #59899e;
+  background-color: #6552a2;
   border: 5px solid white;
   border-radius: 50%;
   opacity: 0;
@@ -170,7 +191,7 @@ input::placeholder {
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .header form .header-form__button:hover {
-  background-color: #78d0e9;
+  background-color: #c653ff;
 }
 .header form .header-form__button .header-form__button-img {
   width: 23px;
@@ -178,8 +199,8 @@ input::placeholder {
 .footer {
   padding: 30px 20px;
   margin: 0;
-  background-color: #192739;
-  color: #327c92;
+  background-color: #6552a2;
+  color: #cbace0;
   font-size: 1.2rem;
 }
 .gallery {
@@ -215,7 +236,7 @@ input::placeholder {
   top: -5px;
 }
 .gallery-card:hover .gallery-card__details-twitter {
-  color: #59899e;
+  color: #6552a2;
 }
 .gallery-card .gallery-card__image {
   width: 100%;
@@ -253,7 +274,8 @@ input::placeholder {
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: #59899e;
+  background-color: #6552a2;
+  overflow: hidden;
 }
 .progress .progress__content {
   display: flex;
@@ -277,9 +299,20 @@ input::placeholder {
   width: 45px;
   margin: 0 14px 0 0;
 }
+@media only screen and (max-width: 480px) {
+  .progress .progress__branding .progress__logo {
+    width: 39px;
+    margin: 0 12px 0 0;
+  }
+}
 .progress .progress__branding .progress__wordmark {
   max-width: 312px;
   width: 100%;
+}
+@media only screen and (max-width: 480px) {
+  .progress .progress__branding .progress__wordmark {
+    max-width: 268px;
+  }
 }
 .progress .progress__message {
   position: relative;
@@ -332,7 +365,7 @@ input::placeholder {
   height: 300%;
   font-family: 'Poppins', helvetica, sans-serif;
   font-weight: 700;
-  background-color: #59899e;
+  background-color: #6552a2;
   color: #fff;
   font-size: 5rem;
   opacity: 0;
@@ -367,9 +400,20 @@ input::placeholder {
   width: 45px;
   margin: 0 14px 0 0;
 }
+@media only screen and (max-width: 480px) {
+  .result .result__branding .result__logo {
+    width: 39px;
+    margin: 0 12px 0 0;
+  }
+}
 .result .result__branding .result__wordmark {
   max-width: 312px;
   width: 100%;
+}
+@media only screen and (max-width: 480px) {
+  .result .result__branding .result__wordmark {
+    max-width: 268px;
+  }
 }
 .result .result__intro {
   text-align: center;
@@ -384,6 +428,11 @@ input::placeholder {
 .result .result__intro .result__intro-title {
   font-family: 'Poppins', helvetica, sans-serif;
   font-weight: 700;
+}
+@media only screen and (max-width: 480px) {
+  .result .result__intro .result__intro-title {
+    display: block;
+  }
 }
 .result .result-collage {
   display: flex;
@@ -423,7 +472,7 @@ input::placeholder {
   border: 0;
   border-radius: 22px;
   outline: 0;
-  background-color: #59899e;
+  background: linear-gradient(to bottom, #7478d8 0%, #6552a2 100%);
   color: #fff;
   font-family: 'Poppins', helvetica, sans-serif;
   font-weight: 700;
@@ -439,5 +488,6 @@ input::placeholder {
   animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 .result .result__button:hover {
-  background-color: #78d0e9;
+  background-color: #c653ff;
+  background: linear-gradient(to bottom, #c653ff 0%, #6552a2 100%);
 }

@@ -3,6 +3,7 @@ import React from 'react';
 export default function Header(props) {
   return (
     <header className="header">
+      <img className="header__bg" src="./public/assets/img/header-bg.jpg" alt="Header background texture" />
       <div className="header__branding">
         <img className="header__logo" src="./public/assets/img/logo.png" alt="TweetCollage logo" />
         <img

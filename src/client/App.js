@@ -2,7 +2,7 @@ import React, {
   Component,
 } from 'react';
 import {
-  Route, Switch,
+  Route, Switch, Link
 } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header';
@@ -11,9 +11,6 @@ import Progress from './components/Progress';
 import Footer from './components/Footer';
 import CollagePage from './components/CollagePage';
 import Collage from './Components/Collage';
-      <div className="App">
-        <Collage query="balloons" />
-      </div>
 import dummydata from './dummydata';
 
 class App extends Component {
@@ -88,6 +85,17 @@ class App extends Component {
           )}
         />
         <Route
+          path='/generator'
+          render={
+            ()=>(
+              <div className="App">
+                <Link to='/'>Home</Link>
+                <Collage query="balloons" />
+              </div>)
+          }
+
+        />
+        <Route
           render={() => (
             <div className="app">
               <Header
@@ -99,6 +107,7 @@ class App extends Component {
                 <Gallery cards={this.state.cards} />
               </main>
               <Footer text="© 2018 TweetCollage. All Rights Reserved." />
+              <Link to='/generator'>To Collage Generator</Link>
             </div>
           )}
         />

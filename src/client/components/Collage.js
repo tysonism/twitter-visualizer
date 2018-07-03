@@ -5,7 +5,7 @@ import Canvas from './Canvas';
 class Collage extends Component {
   constructor(props) {
     super(props);
-    this.url = `https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${props.query}&Image.Filters=Width:100`;
+    this.url = `https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${props.query}`;
     this.state = {
       imageData: [],
       storedCollage: null,

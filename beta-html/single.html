@@ -10,13 +10,18 @@
     <meta name="author" content="Lambda School">
     <meta name="description" content="A tool that turns your tweets into art.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@TweetCollageApp" />
+    <meta name="twitter:title" content="@username's collage" />
+    <meta name="twitter:description" content="Turn your tweets into art with TweetCollage" />
+    <meta name="twitter:image" content="https://work.tysonism.com/experiments/tweetcollage/img/placeholder-04.jpg" />
 
     <title>TweetCollage</title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png?v=0">
-    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png?v=0">  
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png?v=0">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png?v=0">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png?v=1">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png?v=1">  
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png?v=1">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png?v=1">
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
 
@@ -42,7 +47,7 @@
             <button class="result__button">Home</button>
           </div>
         </main>  
-        <footer>
+        <footer class="footer">
             © 2018 TweetCollage. All Rights Reserved.
         </footer>  
     </div>
@@ -51,7 +56,6 @@
       /* For beta/demo purposes only */
       if (window.location.search) {
         const paramId = Number(window.location.search.substring(1));
-        console.log(window.location.search, paramId);
         if (paramId >= 0 && paramId < 7) {
           const collage = document.querySelector('.result-collage__img');
           const thumb = document.querySelector('.result-collage__thumb');
