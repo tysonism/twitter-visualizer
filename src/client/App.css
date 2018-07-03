@@ -14,13 +14,6 @@ body {
   color: #484848;
   background-color: #f0f0f0;
 }
-h1 {
-  font-family: 'GothamRoundMed', helvetica, sans-serif;
-  font-weight: 700;
-  color: #fff;
-  font-size: 6.5rem;
-  letter-spacing: 0;
-}
 button {
   outline: 0;
   cursor: pointer;
@@ -32,10 +25,6 @@ input {
 input::-webkit-input-placeholder,
 input::placeholder {
   color: #bed6de;
-}
-@font-face {
-  font-family: 'GothamRoundMed';
-  src: url('../../beta-html/fonts/gr-md.woff') format('woff');
 }
 header {
   display: flex;
@@ -54,12 +43,13 @@ header .header__branding {
   justify-content: center;
   margin: 0 0 30px 0;
 }
-header .header__branding h1 {
-  display: inline-block;
-}
 header .header__branding .header__logo {
   width: 65px;
   margin: 0 20px 0 0;
+}
+header .header__branding .header__wordmark {
+  max-width: 447px;
+  width: 100%;
 }
 header .header__intro {
   color: #fff;
@@ -108,7 +98,7 @@ header form .header-form__button .header-form__button-img {
 }
 footer {
   padding: 30px 20px;
-  margin: 50px 0 0 0;
+  margin: 0;
   background-color: #192739;
   color: #327c92;
   font-size: 1.2rem;
@@ -117,7 +107,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 0  0 20px;
+  padding: 0 0 70px;
 }
 .gallery-card {
   display: inline-flex;
@@ -171,4 +161,56 @@ footer {
 .gallery-card .gallery-card__details-tweet {
   font-size: 1.4rem;
   line-height: 1.9rem;
+}
+.progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #59899e;
+}
+.progress .progress__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.progress .progress__branding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 0 30px 0;
+}
+.progress .progress__branding .progress__logo {
+  width: 45px;
+  margin: 0 14px 0 0;
+}
+.progress .progress__branding .progress__wordmark {
+  max-width: 312px;
+  width: 100%;
+}
+.progress .progress__message {
+  position: relative;
+  margin: 0 0 40px 0;
+  color: #fff;
+  font-size: 2.3rem;
+  line-height: 3rem;
+  text-align: center;
+}
+.progress .progress__message .progress__message-headline {
+  display: block;
+  font-family: 'Poppins', helvetica, sans-serif;
+  font-weight: 700;
+}
+.progress .progress__list {
+  position: relative;
+  margin: 0 0 0 20px;
+  color: #fff;
+}
+.progress .progress__list .progress__item {
+  position: relative;
+  margin: 0 0 15px 0;
 }

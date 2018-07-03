@@ -28,8 +28,8 @@
     <div class="app">
         <header>
           <div class="header__branding">
-            <img class="header__logo" src="img/logo.png" />
-            <h1>TweetCollage</h1>
+            <img class="header__logo" src="img/logo.png" alt="TweetCollage logo" />
+            <img class="header__wordmark" src="img/logo-wordmark-white.png" alt="TweetCollage" />
           </div>
           <div class="header__intro">A picture is worth a thousand characters.<br>Turn your tweets into sharable art by entering a Twitter handle below.</div>
           <form id="headerForm">
@@ -127,5 +127,13 @@
         </footer>  
     </div>
 
+    <script type="text/javascript">
+      /* For beta/demo purposes only */
+      const formButton = document.querySelector('.header-form__button');
+      formButton.addEventListener('click', e => {
+        e.preventDefault();
+        window.location.href = 'progress.html';
+      });
+    </script> 
   </body>
 </html>
