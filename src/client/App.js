@@ -98,7 +98,7 @@ class App extends Component {
                   width: 1024,
                   height: 512,
                   columns: 4,
-                  rows: 4,
+                  rows: 3,
                 }}
               />
             </div>

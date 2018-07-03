@@ -59,13 +59,6 @@ export default class Canvas extends Component {
       let scale = 1;
       //resizing if too small
       if (targetHeight < maxImageHeight || targetWidth < maxImageWidth) {
-        // if (targetHeight < targetWidth) {
-        //   scale = maxImageHeight / targetHeight;
-        //   targetHeight = maxImageHeight;
-        //   targetWidth *= scale;
-        //   widthCrop = targetWidth - maxImageWidth;
-        // } else {
-        //   scale = maxImageWidth / targetWidth;
           targetWidth = maxImageWidth;
           targetHeight *= scale;
           heightCrop = targetHeight - maxImageHeight;
@@ -82,7 +75,7 @@ export default class Canvas extends Component {
       let newY = currentY;
       if (canvasHeight === undefined) canvasHeight = maxImageHeight;
       if (currentX + (maxImageWidth / 3) > maxCanvasWidth) {
-        if (canvasHeight + targetHeight > maxCanvasHeight) {
+        if (canvasHeight > maxCanvasHeight) {
           return;
         }
         currentX = 0;
@@ -108,7 +101,7 @@ export default class Canvas extends Component {
     });
     return {
       canvasWidth: maxCanvasWidth,
-      canvasHeight,
+      canvasHeight: (canvasHeight > maxCanvasHeight) ? maxCanvasHeight : canvasHeight,
       objectsToDraw,
     };
   }
@@ -172,7 +165,7 @@ export default class Canvas extends Component {
     if (this.props.images !== undefined && this.props.images.length > 0) {
       // Maps over images data, creating img attributes for each
       images = this.props.images
-        .slice(0, 35)
+        .slice(0, this.props.dimensions.rows * this.props.dimensions.columns)
         .map(image => <img key={image.contentUrl} src={image.contentUrl} />);
 
       return (
