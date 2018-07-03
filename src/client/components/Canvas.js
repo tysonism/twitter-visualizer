@@ -59,30 +59,22 @@ export default class Canvas extends Component {
       let scale = 1;
       //resizing if too small
       if (targetHeight < maxImageHeight || targetWidth < maxImageWidth) {
-        if (targetHeight < targetWidth) {
-          scale = maxImageHeight / targetHeight;
-          targetHeight = maxImageHeight;
-          targetWidth *= scale;
-          widthCrop = targetWidth - maxImageWidth;
-        } else {
-          scale = maxImageWidth / targetWidth;
+        // if (targetHeight < targetWidth) {
+        //   scale = maxImageHeight / targetHeight;
+        //   targetHeight = maxImageHeight;
+        //   targetWidth *= scale;
+        //   widthCrop = targetWidth - maxImageWidth;
+        // } else {
+        //   scale = maxImageWidth / targetWidth;
           targetWidth = maxImageWidth;
           targetHeight *= scale;
           heightCrop = targetHeight - maxImageHeight;
-        }
+        // }
               // resizing if too large
       } else if (targetHeight > maxImageHeight || targetWidth > maxImageWidth) {
-        if (targetHeight < targetWidth) {
-          scale = maxImageHeight / targetHeight;
-          targetHeight = maxImageHeight;
-          targetWidth *= scale;
-          widthCrop = targetWidth - maxImageWidth;
-        } else {
           scale = maxImageWidth / targetWidth;
           targetWidth = maxImageWidth;
           targetHeight *= scale;
-          heightCrop = targetHeight - maxImageHeight;
-        }
       }
 
       // determine proper placement
