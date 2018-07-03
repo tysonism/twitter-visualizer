@@ -1,0 +1,38 @@
+// ------------------------------------------------
+// This file contains styles for basic elements.
+// ------------------------------------------------
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%
+}
+
+body {
+  .body-font-regular();
+  font-size: 1.6rem;
+  color: @brand-body-text-color;
+  background-color: @brand-background-color;
+}
+
+h1 {
+  .logo-font();
+  color: @brand-body-text-on-dark-color;
+  font-size: 6.5rem;
+  letter-spacing: 0;
+}
+
+button {
+  outline: 0;
+  cursor: pointer;
+  transition: all .3s linear;
+}
+
+input {
+  color: @brand-body-text-color
+}
+
+input::-webkit-input-placeholder, input::placeholder { 
+  color: @brand-body-text-on-light-color;
+}

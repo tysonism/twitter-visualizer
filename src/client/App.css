@@ -1,1 +1,174 @@
-
+@charset 'UTF-8';
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Poppins', helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #484848;
+  background-color: #f0f0f0;
+}
+h1 {
+  font-family: 'GothamRoundMed', helvetica, sans-serif;
+  font-weight: 700;
+  color: #fff;
+  font-size: 6.5rem;
+  letter-spacing: 0;
+}
+button {
+  outline: 0;
+  cursor: pointer;
+  transition: all .3s linear;
+}
+input {
+  color: #484848;
+}
+input::-webkit-input-placeholder,
+input::placeholder {
+  color: #bed6de;
+}
+@font-face {
+  font-family: 'GothamRoundMed';
+  src: url('../../beta-html/fonts/gr-md.woff') format('woff');
+}
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: inherit;
+  width: 100vw;
+  margin: 0 0 80px 0;
+  padding: 50px 20px 0;
+  background-color: #59899e;
+}
+header .header__branding {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 30px 0;
+}
+header .header__branding h1 {
+  display: inline-block;
+}
+header .header__branding .header__logo {
+  width: 65px;
+  margin: 0 20px 0 0;
+}
+header .header__intro {
+  color: #fff;
+  text-align: center;
+  line-height: 3.0rem;
+  margin: 0;
+}
+header form {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 35px;
+  max-width: 1024px;
+  width: 100%;
+}
+header form .header-form__input-container {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+}
+header form input {
+  width: 100%;
+  height: 70px;
+  padding: 20px 70px 20px 20px;
+  border-radius: 35px;
+  border: 5px solid #59899e;
+  outline: 0;
+  font-size: 2rem;
+}
+header form .header-form__button {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  z-index: 1;
+  width: 56px;
+  height: 56px;
+  background-color: #59899e;
+  border: 5px solid white;
+  border-radius: 50%;
+}
+header form .header-form__button:hover {
+  background-color: #78d0e9;
+}
+header form .header-form__button .header-form__button-img {
+  width: 23px;
+}
+footer {
+  padding: 30px 20px;
+  margin: 50px 0 0 0;
+  background-color: #192739;
+  color: #327c92;
+  font-size: 1.2rem;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0  0 20px;
+}
+.gallery-card {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  top: 0;
+  width: 400px;
+  margin: 20px;
+  padding: 0;
+  background: #fff;
+  border-radius: 6px;
+  border: none;
+  color: #484848;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.gallery-card:hover {
+  -webkit-box-shadow: 0 6px 23px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 23px 0 rgba(0, 0, 0, 0.1);
+  top: -5px;
+}
+.gallery-card:hover .gallery-card__details-twitter {
+  color: #59899e;
+}
+.gallery-card .gallery-card__image {
+  width: 100%;
+  align-self: flex-start;
+}
+.gallery-card .gallery-card__details {
+  display: flex;
+  padding: 20px;
+}
+.gallery-card .gallery-card__details-thumb {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 15px 0 0;
+}
+.gallery-card .gallery-card__details-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+.gallery-card .gallery-card__details-twitter {
+  font-family: 'Poppins', helvetica, sans-serif;
+  font-weight: 700;
+  margin: 0 0 7px 0;
+}
+.gallery-card .gallery-card__details-tweet {
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+}
