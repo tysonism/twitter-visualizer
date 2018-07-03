@@ -61,8 +61,9 @@ class App extends Component {
             <div className="app">
               <CollagePage
                 {...routeProps}
+                cards={this.state.cards}
                 link={'make another'}
-                introTitle="Your collage is done!"
+                introTitle=", your collage is done!"
                 subTitle="Take a look . . ."
               />
               <footer>© 2018 TweetCollage. All Rights Reserved.</footer>
@@ -76,8 +77,9 @@ class App extends Component {
             <div className="app">
               <CollagePage
                 {...routeProps}
+                cards={this.state.cards}
                 link={'home'}
-                introTitle='@user'
+                introTitle=' '
                 subTitle="collage"
               />
               <footer>© 2018 TweetCollage. All Rights Reserved.</footer>
@@ -96,7 +98,7 @@ class App extends Component {
 
         />
         <Route
-          render={() => (
+          render={(routeProps) => (
             <div className="app">
               <Header
                 searchInput={this.state.searchInput}
@@ -104,7 +106,7 @@ class App extends Component {
                 handleSubmit={this.handleSearchSubmit}
               />
               <main>
-                <Gallery cards={this.state.cards} />
+                <Gallery {...routeProps} cards={this.state.cards} />
               </main>
               <Footer text="© 2018 TweetCollage. All Rights Reserved." />
               <Link to='/generator'>To Collage Generator</Link>
