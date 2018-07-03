@@ -1,3 +1,60 @@
 // -----------------------------------
 // Site wide animations
 // --------------------------------------
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes bounceIn {
+  0%{
+    opacity: 0;
+    transform: scale(0.3) translate3d(0,0,0);
+  }
+  50%{
+    opacity: 0.9;
+    transform: scale(1.1);
+  }
+  80%{
+    opacity: 1;
+    transform: scale(0.89);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1) translate3d(0,0,0);
+  }
+}
+
+@keyframes bounceInSmall {
+  0%{
+    opacity: .2;
+    transform: scale(0.9) translate3d(0,0,0);
+  }
+  50%{
+    opacity: .9;
+    transform: scale(1.03);
+  }
+  80%{
+    opacity: 1;
+    transform: scale(0.95);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1) translate3d(0,0,0);
+  }
+}

@@ -40,6 +40,7 @@
                 <li class="progress__item">3. Finding images</li>
                 <li class="progress__item">4. Mixing it all together</li>
               </ul>
+              <div class="progress__done">Done!</div>
             </div>
           </div>
         </main>  
@@ -48,5 +49,28 @@
         </footer>  
     </div>
 
+    <script type="text/javascript">
+      /* For beta/demo purposes only */
+      const allItems = document.querySelectorAll('.progress__item');
+      const doneElement = document.querySelector('.progress__done');
+      const delay = 1250;
+      let itemIndex = -1;
+      const animateItem = () => {
+        let prevIndex = itemIndex;
+        if (itemIndex === allItems.length - 1) {
+          allItems[itemIndex].classList.remove('progress__item--is-active');
+          doneElement.classList.add('progress__done--is-active');
+          const timeoutID = window.setTimeout(() => {window.location.href = 'result.html'}, delay);
+          clearInterval(timerId);
+        } else {
+          itemIndex++;
+          allItems[itemIndex].classList.add('progress__item--is-active');
+          if (itemIndex > 0) {
+            allItems[prevIndex].classList.remove('progress__item--is-active');
+          } 
+        }
+      };
+      const timerId = setInterval(animateItem, delay);
+    </script> 
   </body>
 </html>
