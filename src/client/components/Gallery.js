@@ -5,7 +5,7 @@ export default class Gallery extends Component {
   render() {
     let cards = this.props.cards.map( card => <GalleryCard key={card.id} card={card} />);
     return (
-      <div>
+      <div className="gallery">
         {cards}
       </div>
     )

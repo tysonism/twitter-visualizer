@@ -2,8 +2,8 @@ import React from 'react'
 
 export default (props) => {
   return (
-    <div>
+    <footer>
       {props.text}
-    </div>
+    </footer>
   )
 }
