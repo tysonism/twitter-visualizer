@@ -1,4 +1,110 @@
 .result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 30px 20px 80px;
+  background-color: @brand-secondary-background-color;
+
+  .result__branding {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 30px 0;
+    opacity: 0;
+    transform-origin: center;
+    animation: bounceIn 0.4s forwards;
+    animation-delay: .3s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    .result__logo {
+      width: 45px;
+      margin: 0 14px 0 0;
+    }
+
+    .result__wordmark {
+      max-width: 312px;
+      width: 100%;
+    }
+  }
+
+  .result__intro {
+    text-align: center;
+    line-height: 3.0rem;
+    margin: 0 0 80px 0;
+    font-size: 2.0rem;
+    opacity: 0;
+    animation: slideUp 0.4s forwards;
+    animation-delay: .5s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    .result__intro-title {
+      .body-font-bold();
+    }
+  }
+
+  .result-collage {
+    display: flex;
+    flex-direction: column;
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 0 10px 0;
+
+    .result-collage__img {
+      align-self: center;
+      max-width: 1024px;
+      width: 100%;
+      margin: 0 0 20px 0;
+      border-radius: 10px;
+      -webkit-clip-path: polygon(0 0, 100% 0, 100% 96%, 5% 96%, 7.5% 100%, 10% 96%, 0 96%, 0% 30%);
+      clip-path: polygon(0 0, 100% 0, 100% 96%, 5% 96%, 7.5% 100%, 10% 96%, 0 96%, 0% 30%);
+      opacity: 0;
+      transform-origin: left bottom;
+      animation: bounceInSmall 0.4s forwards;
+      animation-delay: 1.3s;
+      animation-timing-function: linear;
+    }
+
+    .result-collage__thumb {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 0 0 3.8%;
+      opacity: 0;
+      transform-origin: center;
+      animation: bounceIn 0.4s forwards;
+      animation-delay: 1s;
+      animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+  }
+
+  .result__button {
+    margin: 20px 0 0 0;
+    padding: 14px 30px;
+    border: 0;
+    border-radius: 22px;
+    outline: 0;
+    background-color: @brand-secondary-color;
+    color: @brand-body-text-on-dark-color;
+    .body-font-bold();
+    font-size: 1.6rem;
+    line-height: 16px;
+    text-decoration: none;
+    letter-spacing: 0.4px;
+    text-align: center;
+    opacity: 0;
+    transform-origin: center;
+    animation: slideUp 0.4s forwards;
+    animation-delay: 1.4s;
+    animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    &:hover {
+      background-color: @brand-highlight-color;
+    }
+  }
 
 }
 
