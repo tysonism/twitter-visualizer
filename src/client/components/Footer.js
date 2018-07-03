@@ -2,7 +2,7 @@ import React from 'react'
 
 export default (props) => {
   return (
-    <footer>
+    <footer className="footer">
       {props.text}
     </footer>
   )
