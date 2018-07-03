@@ -80,7 +80,7 @@ input::-webkit-input-placeholder,
 input::placeholder {
   color: #bed6de;
 }
-header {
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,7 +95,7 @@ header {
   animation-delay: .3s;
   animation-timing-function: linear;
 }
-header .header__branding {
+.header .header__branding {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,15 +106,15 @@ header .header__branding {
   animation-delay: .7s;
   animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-header .header__branding .header__logo {
+.header .header__branding .header__logo {
   width: 65px;
   margin: 0 20px 0 0;
 }
-header .header__branding .header__wordmark {
+.header .header__branding .header__wordmark {
   max-width: 447px;
   width: 100%;
 }
-header .header__intro {
+.header .header__intro {
   color: #fff;
   text-align: center;
   line-height: 3.0rem;
@@ -125,7 +125,7 @@ header .header__intro {
   animation-delay: .9s;
   animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-header form {
+.header form {
   display: flex;
   justify-content: center;
   position: relative;
@@ -138,12 +138,12 @@ header form {
   animation-delay: 1.2s;
   animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-header form .header-form__input-container {
+.header form .header-form__input-container {
   position: relative;
   max-width: 500px;
   width: 100%;
 }
-header form input {
+.header form input {
   width: 100%;
   height: 70px;
   padding: 20px 70px 20px 20px;
@@ -152,7 +152,7 @@ header form input {
   outline: 0;
   font-size: 2rem;
 }
-header form .header-form__button {
+.header form .header-form__button {
   position: absolute;
   top: 7px;
   right: 10px;
@@ -169,13 +169,13 @@ header form .header-form__button {
   animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-header form .header-form__button:hover {
+.header form .header-form__button:hover {
   background-color: #78d0e9;
 }
-header form .header-form__button .header-form__button-img {
+.header form .header-form__button .header-form__button-img {
   width: 23px;
 }
-footer {
+.footer {
   padding: 30px 20px;
   margin: 0;
   background-color: #192739;

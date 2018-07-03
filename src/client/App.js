@@ -1,17 +1,51 @@
-import React from "react";
-import "./App.css";
+import React, {
+  Component,
+} from 'react';
+import './App.css';
+import Header from './components/Header';
+import Gallery from './components/Gallery';
+import Footer from './components/Footer';
+import dummydata from './dummydata';
 
-const handleClick = (e) => {
-event.target.classList.add('rocket')
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      searchInput: '',
+      cards: [],
+    };
+    this.handleSearchInput = this.handleSearchInput.bind(this);
+    this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      cards: dummydata.cards,
+    });
+  }
+
+  handleSearchInput(event) {
+    this.setState({
+      searchInput: event.target.value,
+    });
+  }
+
+  handleSearchSubmit(event) {
+    event.preventDefault();
+    alert('sent ', this.state.searchInput);
+  }
+
+  render() {
+    return (
+      <div className="app">
+        <Header searchInput={this.state.searchInput} handleChange={this.handleSearchInput} handleSubmit={this.handleSearchSubmit} />
+        <main>
+          <Gallery cards={this.state.cards} />
+        </main>
+        <Footer text="© 2018 TweetCollage. All Rights Reserved." />
+      </div>
+    );
+  }
 }
-const App = () => (
-  <div className="container">
-    <div>
-      <h1 className="title-text">Ready for launch:</h1>
-    </div>
-    <div className="rocket-text">
-      <div >🚀</div>
-    </div>
-  </div>
-);
+
 export default App;
