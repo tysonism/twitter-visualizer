@@ -7,6 +7,7 @@ import {
 import './App.css';
 import Header from './components/Header';
 import Gallery from './components/Gallery';
+import { log } from "util";
 import Progress from './components/Progress';
 import Footer from './components/Footer';
 import CollagePage from './components/CollagePage';
