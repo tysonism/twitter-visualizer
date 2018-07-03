@@ -12,6 +12,17 @@
   animation: fadeIn 0.4s forwards;
   animation-delay: .3s;
   animation-timing-function: linear;
+  border-bottom: 5px solid @brand-secondary-color;
+
+  .header__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+  }
 
   .header__branding {
     display: flex;

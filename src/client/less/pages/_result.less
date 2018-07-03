@@ -87,7 +87,7 @@
     border: 0;
     border-radius: 22px;
     outline: 0;
-    background-color: @brand-secondary-color;
+    background: linear-gradient(to bottom, @brand-footer-text 0%,@brand-secondary-color 100%);
     color: @brand-body-text-on-dark-color;
     .body-font-bold();
     font-size: 1.6rem;
@@ -103,6 +103,7 @@
 
     &:hover {
       background-color: @brand-highlight-color;
+      background: linear-gradient(to bottom, @brand-highlight-color 0%,@brand-secondary-color 100%);
     }
   }
 
