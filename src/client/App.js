@@ -1,20 +1,51 @@
-import React from 'react';
+import React, {
+  Component,
+} from 'react';
 import './App.css';
 import Header from './components/Header';
 import Gallery from './components/Gallery';
 import Footer from './components/Footer';
-import dummydata from './dummydata.js';
+import dummydata from './dummydata';
 
-const handleClick = (e) => {
-  event.target.classList.add('rocket');
-};
-const App = () => (
-  <div className="app">
-    <Header />
-    <main>
-      <Gallery cards={dummydata.cards} />
-    </main>
-    <Footer text="© 2018 TweetCollage. All Rights Reserved." />
-  </div>
-);
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      searchInput: '',
+      cards: [],
+    };
+    this.handleSearchInput = this.handleSearchInput.bind(this);
+    this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.setState({
+      cards: dummydata.cards,
+    });
+  }
+
+  handleSearchInput(event) {
+    this.setState({
+      searchInput: event.target.value,
+    });
+  }
+
+  handleSearchSubmit(event) {
+    event.preventDefault();
+    alert('sent ', this.state.searchInput);
+  }
+
+  render() {
+    return (
+      <div className="app">
+        <Header searchInput={this.state.searchInput} handleChange={this.handleSearchInput} handleSubmit={this.handleSearchSubmit} />
+        <main>
+          <Gallery cards={this.state.cards} />
+        </main>
+        <Footer text="© 2018 TweetCollage. All Rights Reserved." />
+      </div>
+    );
+  }
+}
+
 export default App;
