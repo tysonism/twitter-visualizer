@@ -10,6 +10,10 @@ import Gallery from './components/Gallery';
 import Progress from './components/Progress';
 import Footer from './components/Footer';
 import CollagePage from './components/CollagePage';
+import Collage from './Components/Collage';
+      <div className="App">
+        <Collage query="balloons" />
+      </div>
 import dummydata from './dummydata';
 
 class App extends Component {
