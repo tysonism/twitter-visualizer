@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="content-language" content="en">
+    <meta name="date" content="2018-07-02">
+    <meta name="robots" content="noindex,nofollow">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta name="title" content="TweetCollage">
+    <meta name="author" content="Lambda School">
+    <meta name="description" content="A tool that turns your tweets into art.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <title>TweetCollage</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png?v=0">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png?v=0">  
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png?v=0">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png?v=0">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="../src/client/index.css">
+    <link rel="stylesheet" href="../src/client/App.css">
+  </head>
+  <body>
+
+    <div class="app">
+        <main>
+          <div class="progress">
+            <div class="progress__content">
+              <div class="progress__branding">
+                <img class="progress__logo" src="img/logo.png" alt="TweetCollage logo" />
+                <img class="progress__wordmark" src="img/logo-wordmark-white.png" alt="TweetCollage" />
+              </div>
+              <div class="progress__message"><span class="progress__message-headline">Hold on tight!</span>We're creating your collage . . .</div>
+              <ul class="progress__list">
+                <li class="progress__item">1. Gathering tweets</li>
+                <li class="progress__item">2. Analyzing words</li>
+                <li class="progress__item">3. Finding images</li>
+                <li class="progress__item">4. Mixing it all together</li>
+              </ul>
+              <div class="progress__done">Done!</div>
+            </div>
+          </div>
+        </main>  
+        <footer>
+            © 2018 TweetCollage. All Rights Reserved.
+        </footer>  
+    </div>
+
+    <script type="text/javascript">
+      /* For beta/demo purposes only */
+      const allItems = document.querySelectorAll('.progress__item');
+      const doneElement = document.querySelector('.progress__done');
+      const delay = 1250;
+      let itemIndex = -1;
+      const animateItem = () => {
+        let prevIndex = itemIndex;
+        if (itemIndex === allItems.length - 1) {
+          allItems[itemIndex].classList.remove('progress__item--is-active');
+          doneElement.classList.add('progress__done--is-active');
+          const timeoutID = window.setTimeout(() => {window.location.href = 'result.html'}, delay);
+          clearInterval(timerId);
+        } else {
+          itemIndex++;
+          allItems[itemIndex].classList.add('progress__item--is-active');
+          if (itemIndex > 0) {
+            allItems[prevIndex].classList.remove('progress__item--is-active');
+          } 
+        }
+      };
+      const timerId = setInterval(animateItem, delay);
+    </script> 
+  </body>
+</html>
