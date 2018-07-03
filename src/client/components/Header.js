@@ -30,7 +30,6 @@ export default function Header(props) {
             <img className="header-form__button-img" src="public/assets/img/logo.png" onClick={props.handleSubmit}/>
           </button>
         </div>
-        <input type="submit" className='header-form__input-submit--invisible' onSubmit={props.handleSubmit}/>
       </form>
     </header>
   );

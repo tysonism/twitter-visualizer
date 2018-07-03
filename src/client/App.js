@@ -23,7 +23,6 @@ class App extends Component {
     };
     this.handleSearchInput = this.handleSearchInput.bind(this);
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
-    this.handleSearchKeyPress = this.handleSearchKeyPress.bind(this);
   }
 
   componentDidMount() {
@@ -41,12 +40,6 @@ class App extends Component {
   handleSearchSubmit(event) {
     event.preventDefault();
     this.props.history.push('/progress');
-  }
-
-  handleSearchKeyPress(event) {
-    // if (event.key === 'Enter') {
-    //   this.handleSearchSubmit(event);
-    // }
   }
 
   render() {
@@ -110,7 +103,6 @@ class App extends Component {
                 searchInput={this.state.searchInput}
                 handleChange={this.handleSearchInput}
                 handleSubmit={this.handleSearchSubmit}
-                handleKeyPress={this.handleSearchKeyPress}
               />
               <main>
                 <Gallery cards={this.state.cards} />
