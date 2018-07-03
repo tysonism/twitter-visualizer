@@ -3,7 +3,6 @@ const NaturalLanguageUnderstandingV1 = require('watson-developer-cloud/natural-l
 const NLU = (text) => {
 
 const naturalLanguageUnderstanding = new NaturalLanguageUnderstandingV1({
-    
   })
 
   var parameters = {
