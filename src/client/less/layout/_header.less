@@ -38,11 +38,20 @@
     .header__logo {
       width: 65px;
       margin: 0 20px 0 0;
+
+      @media @phone {
+        width: 39px;
+        margin: 0 12px 0 0;
+      }   
     }
 
     .header__wordmark {
       max-width: 447px;
       width: 100%;
+
+      @media @phone {
+        max-width: 268px;
+      }  
     }
   }
 
