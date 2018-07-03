@@ -46,10 +46,10 @@ export default class Canvas extends Component {
     const objectsToDraw = [];
     let currentY = 0;
     let currentX = 0;
-    const maxCanvasWidth = 1024;
-    const maxCanvasHeight = 512;
-    const maxImageWidth = Math.floor(maxCanvasWidth / 6);
-    const maxImageHeight = Math.floor(maxCanvasHeight / 3);
+    const maxCanvasWidth = this.props.dimensions.width;
+    const maxCanvasHeight = this.props.dimensions.height;
+    const maxImageWidth = Math.floor(maxCanvasWidth / this.props.dimensions.columns);
+    const maxImageHeight = Math.floor(maxCanvasHeight / this.props.dimensions.rows);
     let canvasHeight;
     let canvasWidth;
     let rowWidths = [0];
@@ -67,7 +67,7 @@ export default class Canvas extends Component {
           targetWidth *= scale;
           widthCrop = targetWidth - maxImageWidth;
         } else {
-          scale = targetWidth / maxImageWidth;
+          scale = maxImageWidth / targetWidth;
           targetWidth = maxImageWidth;
           targetHeight *= scale;
           heightCrop = targetHeight - maxImageHeight;
@@ -91,7 +91,7 @@ export default class Canvas extends Component {
       let newX = currentX;
       let newY = currentY;
       if (canvasHeight === undefined) canvasHeight = maxImageHeight;
-      if (currentX + targetWidth > maxCanvasWidth) {
+      if (currentX + (maxImageWidth / 3) > maxCanvasWidth) {
         if (canvasHeight + targetHeight > maxCanvasHeight) {
           return;
         }
@@ -120,12 +120,7 @@ export default class Canvas extends Component {
       currentY = newY;
     });
     return {
-      canvasWidth: rowWidths.reduce((smallest, rowWidth) => {
-        if (rowWidth < smallest) {
-          return rowWidth
-        }
-        return smallest;
-      }),
+      canvasWidth: maxCanvasWidth,
       canvasHeight,
       objectsToDraw,
     };
