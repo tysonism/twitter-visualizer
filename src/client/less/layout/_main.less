@@ -1,12 +1,70 @@
 main {
-  .grid();
+  
+  .gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0  0 20px;
+  }
 
-  .main__content {
-    .grid-center-column();
+  .gallery-card {
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    top: 0;
+    width: 400px;
+    margin: 20px;
+    padding: 0;
+    background: @brand-secondary-background-color;
+    border-radius: 6px;
+    border: none;
+    color: @brand-body-text-color;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-    @media @phone {
-      margin: 0 0 35px 0;
+    &:hover {
+      -webkit-box-shadow: 0 6px 23px 0 rgba(0,0,0,0.1);
+      box-shadow: 0 6px 23px 0 rgba(0,0,0,0.1);
+      top: -5px;
+
+      .gallery-card__details-twitter {
+        color: @brand-secondary-color;
+      }
     }
-    
+
+    .gallery-card__image {
+      width: 100%;
+      align-self: flex-start;
+    }
+
+    .gallery-card__details {
+      display: flex;
+      padding: 20px;
+    }
+
+    .gallery-card__details-thumb {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin: 0 15px 0 0;
+    }
+
+    .gallery-card__details-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex: 1;
+    }
+
+    .gallery-card__details-twitter {
+      .body-font-bold();
+      margin: 0 0 7px 0;
+    }
+
+    .gallery-card__details-tweet {
+      font-size: 1.4rem;
+      line-height: 1.9rem;
+    }
   }
 }

@@ -10,44 +10,29 @@ html {
 }
 
 body {
+  .body-font-regular();
   font-size: 1.6rem;
-  // color: @brand-color-dark-gray;
-  // background-color: @brand-color-white;
-  // .font-regular();
-  // line-height: 2.4rem;
+  color: @brand-body-text-color;
+  background-color: @brand-background-color;
 }
 
-// h1 {
-//   color: @brand-color-white;
-//   .font-bold();
-//   font-size: 6.4rem;
-//   line-height: 7.5rem;
-// }
+h1 {
+  .logo-font();
+  color: @brand-body-text-on-dark-color;
+  font-size: 6.5rem;
+  letter-spacing: 0;
+}
 
-// h2 {
-//   margin: 0 0 2.1rem 0;
-//   .font-bold();
-//   font-size: 2.4rem;
-// }
+button {
+  outline: 0;
+  cursor: pointer;
+  transition: all .3s linear;
+}
 
-// button {
-//   align-self: flex-start;
-//   padding: 14px 25px;
-//   color: @brand-color-dark-gray;
-//   border: 1px @brand-color-dark-gray solid;
-//   outline: 0;
-//   .font-regular();
-//   font-size: 1.6rem;
-//   word-break: break-all;
-//   cursor: pointer;
-//   transition: all .3s linear;
+input {
+  color: @brand-body-text-color
+}
 
-//   @media @phone {
-//     width: 100%;
-//   }
-
-//   &:hover {
-//     color: @brand-color-white;
-//     background-color: @brand-color-dark-gray;
-//   }
-// }
+input::-webkit-input-placeholder, input::placeholder { 
+  color: @brand-body-text-on-light-color;
+}
