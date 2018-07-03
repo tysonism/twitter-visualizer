@@ -51,8 +51,6 @@ export default class Canvas extends Component {
     const maxImageWidth = Math.floor(maxCanvasWidth / this.props.dimensions.columns);
     const maxImageHeight = Math.floor(maxCanvasHeight / this.props.dimensions.rows);
     let canvasHeight;
-    let canvasWidth;
-    let rowWidths = [0];
     images.forEach((imageElem) => {
       let targetHeight = imageElem.height;
       let targetWidth = imageElem.width;
@@ -96,14 +94,12 @@ export default class Canvas extends Component {
           return;
         }
         currentX = 0;
-        rowWidths.push(0);
         newX = 0 + targetWidth;
         canvasHeight += maxImageHeight;
         currentY += maxImageHeight;
         newY = currentY;
       } else {
         newX = currentX + maxImageWidth;
-        rowWidths[rowWidths.length-1] += maxImageWidth;
       }
 
       objectsToDraw.push({
@@ -115,7 +111,6 @@ export default class Canvas extends Component {
         height: targetHeight,
         width: targetWidth,
       });
-      if (newX > canvasWidth) canvasWidth = newX;
       currentX = newX;
       currentY = newY;
     });
@@ -185,7 +180,7 @@ export default class Canvas extends Component {
     if (this.props.images !== undefined && this.props.images.length > 0) {
       // Maps over images data, creating img attributes for each
       images = this.props.images
-        .slice(0, 20)
+        .slice(0, 35)
         .map(image => <img key={image.contentUrl} src={image.contentUrl} />);
 
       return (

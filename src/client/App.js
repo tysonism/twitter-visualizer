@@ -93,12 +93,12 @@ class App extends Component {
             <div className="App">
               <Link to="/">Home</Link>
               <Collage
-                query="heavy metal"
+                query="stone age"
                 dimensions={{
                   width: 1024,
                   height: 512,
                   columns: 5,
-                  rows: 2,
+                  rows: 4,
                 }}
               />
             </div>
