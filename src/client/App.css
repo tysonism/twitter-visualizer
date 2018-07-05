@@ -173,14 +173,6 @@ input::placeholder {
   outline: 0;
   font-size: 2rem;
 }
-.header form input.header-form__input-submit--invisible {
-  visibility: hidden;
-  width: 0;
-  height: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
 .header form .header-form__button {
   position: absolute;
   top: 7px;
@@ -382,6 +374,12 @@ input::placeholder {
 .progress .progress__done.progress__done--is-active {
   animation: bounceIn 0.4s forwards;
   animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.result--background {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .result {
   display: flex;

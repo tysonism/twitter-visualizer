@@ -30,16 +30,19 @@ export default class Canvas extends Component {
         width,
         height,
       );
-      console.log(imageObj);
     });
 
-    const encodedImage = canvas.toDataURL();
-    const localDataStorage = {
-      width: canvasContent.canvasWidth,
-      height: canvasContent.canvasHeight,
-      url: encodedImage,
-    };
-    window.localStorage.setItem(this.props.query, JSON.stringify(localDataStorage));
+    // const encodedImage = canvas.toDataURL();
+    // const localDataStorage = {
+    //   width: canvasContent.canvasWidth,
+    //   height: canvasContent.canvasHeight,
+    //   url: encodedImage,
+    // };
+
+    // if (this.props.match.params.id === undefined) {
+    //   this.props.history.push(`${this.props.match.url}${this.props.id}`);
+    // }
+    this.props.history.push(`/generate/${this.props.id}`);
   }
 
   processImages(images) {

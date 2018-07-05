@@ -6,7 +6,8 @@ import Canvas from './Canvas';
 export default class CollagePage extends Component {
   constructor(props) {
     super(props);
-    this.id = props.match.params.id;
+    console.log(this.props);
+    this.id = props.match.params.id || props.queryResults.id;
     this.card = props.cards && props.cards.find(candidate => candidate.id === this.id, this);
     this.navigateHome = this.navigateHome.bind(this);
   }
@@ -24,10 +25,16 @@ export default class CollagePage extends Component {
           src={`../public/assets/img/placeholder-${this.id}.jpg`}
         />
       );
-    }
-    else if (this.props.queryResults.results.value && this.props.queryResults.results.value.length > 0) {
+    } else if (
+      this.props.queryResults.results.value
+      && this.props.queryResults.results.value.length > 0
+    ) {
       resultImage = (
         <Canvas
+          id={this.id}
+          history={this.props.history}
+          match={this.props.history}
+          location={this.props.history}
           images={this.props.queryResults.results.value}
           dimensions={{
             width: 1024,
@@ -54,12 +61,10 @@ export default class CollagePage extends Component {
             />
           </div>
           <div className="result__intro">
-            <span className="result__intro-title">{`${(this.card && this.card.user) || this.props.queryResults.user}${
-              this.props.introTitle
-            }`}</span>
+            <span className="result__intro-title">{`${(this.card && this.card.user)
+              || this.props.queryResults.user}${this.props.introTitle}`}</span>
             {this.props.subTitle}
           </div>
-
           <div className="result-collage">
             {resultImage}
             <img

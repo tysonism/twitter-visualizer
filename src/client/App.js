@@ -30,7 +30,7 @@ class App extends Component {
     this.state = {
       searchInput: '',
       cards: [],
-      queryResults: {results: [], user:'', id:''},
+      queryResults: {results: {value: []}, user:'', id:''},
     };
     this.handleSearchInput = this.handleSearchInput.bind(this);
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
@@ -45,7 +45,6 @@ class App extends Component {
   handleSearchInput(event) {
     this.setState({
       searchInput: event.target.value,
-      queryResults: [],
     });
   }
 
@@ -60,43 +59,38 @@ class App extends Component {
     //     }, () => { context.props.history.push(`/result/${response.data.id}`); });
     //   })
     //   .catch(err => console.log(err));
-
-    this.props.history.push('/progress');
     axios({
       method: 'get',
-      url: `https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${this.state.searchInput}&size=medium&aspect=Wide`,
+      url: `https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${this.state.searchInput}&maxWidth=300&aspect=Wide`,
       headers: {
         'Ocp-Apim-Subscription-Key': 'c24662dcb15b4e9391b74fdf5279e2bb',
       },
     })
       .then((response) => {
-        const move = () => { context.props.history.push(`/result/${context.state.queryResults.id}`); }
+        const move = () => this.props.history.push('/generate/');
         this.setState({ queryResults: {id: '01', user: '@batman', results: response.data}}, move);
       })
       .catch((response) => {
         console.log('error :', response);
-      });
-    
-  }
+      }); 
 
+  }
   render() {
     return (
-      <Switch>
-        <Route
-          exact
-          path="/progress"
+      <div>
+        {/* <Route
+          path="/generate/"
           render={routeProps => (
             <div className="app">
               <Progress {...routeProps} />
               <Footer text="© 2018 TweetCollage. All Rights Reserved." />
             </div>
           )}
-        />
+        /> */}
         <Route
-          exact
-          path="/result/:id"
+          path="/generate/:id?"
           render={routeProps => (
-            <div className="app">
+            <div className="result--background app">
               <CollagePage
                 {...routeProps}
                 link={'make another'}
@@ -126,6 +120,8 @@ class App extends Component {
           )}
         />
         <Route
+        exact
+        path='/'
           render={routeProps => (
             <div className="app">
               <Header
@@ -140,7 +136,7 @@ class App extends Component {
             </div>
           )}
         />
-      </Switch>
+      </div>
     );
   }
 }
