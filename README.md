@@ -18,4 +18,4 @@
 
 
 #### - - - - - - - - - - - - - - -
-*TweetCollege is a project developed over 24 hours for Lambda School's July 2018 Hackathon.* 😊 **AND WE WON!** 🥇
+*TweetCollage is a project developed over 24 hours for Lambda School's July 2018 Hackathon.* 😊 **AND WE WON!** 🥇
