@@ -9,7 +9,17 @@ export default class CollagePage extends Component {
     console.log(this.props);
     this.id = props.match.params.id || props.queryResults.id;
     this.card = props.cards && props.cards.find(candidate => candidate.id === this.id, this);
+    this.state = {
+      isVisible: props.isVisible,
+    }
     this.navigateHome = this.navigateHome.bind(this);
+    this.updateVisibility = this.updateVisibility.bind(this);
+  }
+
+  updateVisibility() {
+    this.setState({
+      isVisible: true,
+    });
   }
 
   navigateHome() {
@@ -36,18 +46,14 @@ export default class CollagePage extends Component {
           match={this.props.history}
           location={this.props.history}
           images={this.props.queryResults.results.value}
-          dimensions={{
-            width: 1024,
-            height: 512,
-            columns: 5,
-            rows: 2,
-          }}
+          dimensions={this.props.dimensions}
+          updateVisibility={this.updateVisibility}
         />
       );
     }
     return (
       <main>
-        <div className="result">
+        <div className={'result' + (this.state.isVisible ? ' visible': '')}>
           <div className="result__branding">
             <img
               className="result__logo"

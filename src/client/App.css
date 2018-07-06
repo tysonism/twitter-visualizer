@@ -382,6 +382,10 @@ input::placeholder {
   left: 0;
 }
 .result {
+  visibility: hidden;
+}
+.result.visible {
+  visibility: visible;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -391,7 +395,7 @@ input::placeholder {
   padding: 30px 20px 80px;
   background-color: #fff;
 }
-.result .result__branding {
+.result.visible .result__branding {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -402,26 +406,26 @@ input::placeholder {
   animation-delay: .3s;
   animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.result .result__branding .result__logo {
+.result.visible .result__branding .result__logo {
   width: 45px;
   margin: 0 14px 0 0;
 }
 @media only screen and (max-width: 480px) {
-  .result .result__branding .result__logo {
+  .result.visible .result__branding .result__logo {
     width: 39px;
     margin: 0 12px 0 0;
   }
 }
-.result .result__branding .result__wordmark {
+.result.visible .result__branding .result__wordmark {
   max-width: 312px;
   width: 100%;
 }
 @media only screen and (max-width: 480px) {
-  .result .result__branding .result__wordmark {
+  .result.visible .result__branding .result__wordmark {
     max-width: 268px;
   }
 }
-.result .result__intro {
+.result.visible .result__intro {
   text-align: center;
   line-height: 3.0rem;
   margin: 0 0 80px 0;
@@ -431,23 +435,23 @@ input::placeholder {
   animation-delay: .5s;
   animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.result .result__intro .result__intro-title {
+.result.visible .result__intro .result__intro-title {
   font-family: 'Poppins', helvetica, sans-serif;
   font-weight: 700;
 }
 @media only screen and (max-width: 480px) {
-  .result .result__intro .result__intro-title {
+  .result.visible .result__intro .result__intro-title {
     display: block;
   }
 }
-.result .result-collage {
+.result.visible .result-collage {
   display: flex;
   flex-direction: column;
   max-width: 1024px;
   width: 100%;
   margin: 0 0 10px 0;
 }
-.result .result-collage .result-collage__img {
+.result.visible .result-collage .result-collage__img {
   align-self: center;
   max-width: 1024px;
   width: 100%;
@@ -461,7 +465,7 @@ input::placeholder {
   animation-delay: 1.3s;
   animation-timing-function: linear;
 }
-.result .result-collage .result-collage__thumb {
+.result.visible .result-collage .result-collage__thumb {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -472,7 +476,7 @@ input::placeholder {
   animation-delay: 1s;
   animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.result .result__button {
+.result.visible .result__button {
   margin: 20px 0 0 0;
   padding: 14px 30px;
   border: 0;
@@ -493,7 +497,7 @@ input::placeholder {
   animation-delay: 1.4s;
   animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.result .result__button:hover {
+.result.visible .result__button:hover {
   background-color: #c653ff;
   background: linear-gradient(to bottom, #c653ff 0%, #6552a2 100%);
 }

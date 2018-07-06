@@ -27,10 +27,22 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.serverUrl = 'https://tweetcollage.herokuapp.com/api/tweets';
+    this.dimensions = {
+      width: 1024,
+      height: 512,
+      columns: 5,
+      rows: 2,
+    };
     this.state = {
       searchInput: '',
       cards: [],
-      queryResults: {results: {value: []}, user:'', id:''},
+      queryResults: {
+        results: {
+          value: [],
+        },
+        user: '',
+        id: '',
+      },
     };
     this.handleSearchInput = this.handleSearchInput.bind(this);
     this.handleSearchSubmit = this.handleSearchSubmit.bind(this);
@@ -61,24 +73,37 @@ class App extends Component {
     //   .catch(err => console.log(err));
     axios({
       method: 'get',
-      url: `https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${this.state.searchInput}&maxWidth=300&aspect=Wide`,
+      url: `https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${
+        this.state.searchInput
+      }&size=medium&aspect=Tall`,
       headers: {
         'Ocp-Apim-Subscription-Key': 'c24662dcb15b4e9391b74fdf5279e2bb',
       },
     })
       .then((response) => {
         const move = () => this.props.history.push('/generate/');
-        this.setState({ queryResults: {id: '01', user: '@batman', results: response.data}}, move);
+        this.setState(
+          {
+            searchInput: '',
+            queryResults: {
+              id: '01',
+              user: '@batman',
+              results: response.data,
+            },
+          },
+          move,
+        );
       })
       .catch((response) => {
         console.log('error :', response);
-      }); 
-
+      });
   }
+
   render() {
     return (
       <div>
-        {/* <Route
+        <Route
+          exact
           path="/generate/"
           render={routeProps => (
             <div className="app">
@@ -86,7 +111,7 @@ class App extends Component {
               <Footer text="© 2018 TweetCollage. All Rights Reserved." />
             </div>
           )}
-        /> */}
+        />
         <Route
           path="/generate/:id?"
           render={routeProps => (
@@ -97,6 +122,8 @@ class App extends Component {
                 introTitle=", your collage is done!"
                 subTitle=" Take a look . . ."
                 queryResults={this.state.queryResults}
+                isVisible={false}
+                dimensions = {this.dimensions}
               />
               <footer>© 2018 TweetCollage. All Rights Reserved.</footer>
             </div>
@@ -114,14 +141,16 @@ class App extends Component {
                 introTitle=" "
                 subTitle="collage"
                 queryResults={this.state.queryResults}
+                isVisible={true}
+                dimensions={this.dimensions}
               />
               <footer>© 2018 TweetCollage. All Rights Reserved.</footer>
             </div>
           )}
         />
         <Route
-        exact
-        path='/'
+          exact
+          path="/"
           render={routeProps => (
             <div className="app">
               <Header
@@ -142,4 +171,3 @@ class App extends Component {
 }
 
 export default App;
-

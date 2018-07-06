@@ -42,6 +42,7 @@ export default class Canvas extends Component {
     // if (this.props.match.params.id === undefined) {
     //   this.props.history.push(`${this.props.match.url}${this.props.id}`);
     // }
+    this.props.updateVisibility();
     this.props.history.push(`/generate/${this.props.id}`);
   }
 
