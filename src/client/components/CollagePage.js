@@ -2,6 +2,7 @@ import React, {
   Component,
 } from 'react';
 import Canvas from './Canvas';
+import Footer from './Footer';
 
 export default class CollagePage extends Component {
   constructor(props) {
@@ -52,6 +53,7 @@ export default class CollagePage extends Component {
       );
     }
     return (
+      <React.Fragment>
       <main>
         <div className={'result' + (this.state.isVisible ? ' visible': '')}>
           <div className="result__branding">
@@ -84,6 +86,8 @@ export default class CollagePage extends Component {
           </button>
         </div>
       </main>
+      <Footer text="© 2018 TweetCollage. All Rights Reserved." />
+      </React.Fragment>
     );
   }
 }

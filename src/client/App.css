@@ -382,7 +382,7 @@ input::placeholder {
   left: 0;
 }
 .result {
-  visibility: hidden;
+  display: none;
 }
 .result.visible {
   visibility: visible;

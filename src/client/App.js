@@ -2,7 +2,7 @@ import React, {
   Component,
 } from 'react';
 import {
-  Route, Switch, Link,
+  { Route }
 } from 'react-router-dom';
 import './App.css';
 import {
@@ -20,7 +20,6 @@ import Header from './components/Header';
 import Progress from './components/Progress';
 import Footer from './components/Footer';
 import CollagePage from './components/CollagePage';
-import Collage from './Components/Collage';
 import dummydata from './dummydata';
 
 class App extends Component {
@@ -31,7 +30,7 @@ class App extends Component {
       width: 1024,
       height: 512,
       columns: 5,
-      rows: 2,
+      rows: 3,
     };
     this.state = {
       searchInput: '',
@@ -108,7 +107,6 @@ class App extends Component {
           render={routeProps => (
             <div className="app">
               <Progress {...routeProps} />
-              <Footer text="© 2018 TweetCollage. All Rights Reserved." />
             </div>
           )}
         />
@@ -125,7 +123,6 @@ class App extends Component {
                 isVisible={false}
                 dimensions = {this.dimensions}
               />
-              <footer>© 2018 TweetCollage. All Rights Reserved.</footer>
             </div>
           )}
         />
@@ -144,7 +141,6 @@ class App extends Component {
                 isVisible={true}
                 dimensions={this.dimensions}
               />
-              <footer>© 2018 TweetCollage. All Rights Reserved.</footer>
             </div>
           )}
         />
