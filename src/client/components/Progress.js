@@ -8,13 +8,6 @@ export default class Progress extends Component {
     this.user = '01';
   }
 
-  componentDidMount() {
-    const context = this;
-    const progress = window.setTimeout(() => {
-      context.props.history.push(`/result/${this.user}`);
-    }, 1500);
-  }
-
   render() {
     return (
       <main>
