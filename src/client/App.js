@@ -113,7 +113,6 @@ class App extends Component {
         <Route
           path="/generate/:id?"
           render={routeProps => (
-            <div className="result--background app">
               <CollagePage
                 {...routeProps}
                 link={'make another'}
@@ -123,7 +122,6 @@ class App extends Component {
                 isVisible={false}
                 dimensions = {this.dimensions}
               />
-            </div>
           )}
         />
         <Route
