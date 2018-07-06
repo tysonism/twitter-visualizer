@@ -49,7 +49,7 @@ class Collage extends Component {
     return (
       <div className="Collage">
         {this.state.imageData.length || this.state.storedCollage > 0 ? (
-          <Canvas images={this.state.imageData} storedCollage={this.storedCollage} query={this.props.query} />
+          <Canvas dimensions={this.props.dimensions} images={this.state.imageData} storedCollage={this.storedCollage} query={this.props.query} />
         ) : null}
       </div>
     );
