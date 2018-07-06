@@ -55,8 +55,6 @@ export default class Canvas extends Component {
     const maxImageWidth = Math.floor(maxCanvasWidth / this.props.dimensions.columns);
     const maxImageHeight = Math.floor(maxCanvasHeight / this.props.dimensions.rows);
     let canvasHeight;
-    let canvasWidth;
-    let rowWidths = [0];
     images.forEach((imageElem) => {
       let targetHeight = imageElem.height;
       let targetWidth = imageElem.width;
@@ -65,30 +63,15 @@ export default class Canvas extends Component {
       let scale = 1;
       //resizing if too small
       if (targetHeight < maxImageHeight || targetWidth < maxImageWidth) {
-        if (targetHeight < targetWidth) {
-          scale = maxImageHeight / targetHeight;
-          targetHeight = maxImageHeight;
-          targetWidth *= scale;
-          widthCrop = targetWidth - maxImageWidth;
-        } else {
-          scale = maxImageWidth / targetWidth;
           targetWidth = maxImageWidth;
           targetHeight *= scale;
           heightCrop = targetHeight - maxImageHeight;
-        }
+        // }
               // resizing if too large
       } else if (targetHeight > maxImageHeight || targetWidth > maxImageWidth) {
-        if (targetHeight < targetWidth) {
-          scale = maxImageHeight / targetHeight;
-          targetHeight = maxImageHeight;
-          targetWidth *= scale;
-          widthCrop = targetWidth - maxImageWidth;
-        } else {
           scale = maxImageWidth / targetWidth;
           targetWidth = maxImageWidth;
           targetHeight *= scale;
-          heightCrop = targetHeight - maxImageHeight;
-        }
       }
 
       // determine proper placement
@@ -96,18 +79,16 @@ export default class Canvas extends Component {
       let newY = currentY;
       if (canvasHeight === undefined) canvasHeight = maxImageHeight;
       if (currentX + (maxImageWidth / 3) > maxCanvasWidth) {
-        if (canvasHeight + targetHeight > maxCanvasHeight) {
+        if (canvasHeight > maxCanvasHeight) {
           return;
         }
         currentX = 0;
-        rowWidths.push(0);
         newX = 0 + targetWidth;
         canvasHeight += maxImageHeight;
         currentY += maxImageHeight;
         newY = currentY;
       } else {
         newX = currentX + maxImageWidth;
-        rowWidths[rowWidths.length-1] += maxImageWidth;
       }
 
       objectsToDraw.push({
@@ -119,13 +100,12 @@ export default class Canvas extends Component {
         height: targetHeight,
         width: targetWidth,
       });
-      if (newX > canvasWidth) canvasWidth = newX;
       currentX = newX;
       currentY = newY;
     });
     return {
       canvasWidth: maxCanvasWidth,
-      canvasHeight,
+      canvasHeight: (canvasHeight > maxCanvasHeight) ? maxCanvasHeight : canvasHeight,
       objectsToDraw,
     };
   }
@@ -190,7 +170,7 @@ export default class Canvas extends Component {
     if (this.props.images !== undefined && this.props.images.length > 0) {
       // Maps over images data, creating img attributes for each. Does x2 number of squares in case of failures
       images = this.props.images
-        .slice(0, 1.2 * this.props.dimensions.width * this.props.dimensions.height)
+         .slice(0, 1.2 * this.props.dimensions.width * this.props.dimensions.height)
         .map(image => <img key={image.contentUrl} src={image.contentUrl} />);
 
       return (
