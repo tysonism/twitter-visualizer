@@ -18,4 +18,4 @@
 
 
 #### - - - - - - - - - - - - - - -
-*TweetCollege is a project developed over 24 hours for Lamba School's July 2018 Hackathon.* **AND ME WON!** 😊🥇
+*TweetCollege is a project developed over 24 hours for Lamba School's July 2018 Hackathon.* 😊 **AND WE WON!** 🥇
