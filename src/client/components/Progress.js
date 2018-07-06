@@ -1,6 +1,7 @@
 import React, {
   Component,
 } from 'react';
+import Footer from './Footer'
 
 export default class Progress extends Component {
   constructor(props) {
@@ -8,15 +9,9 @@ export default class Progress extends Component {
     this.user = '01';
   }
 
-  componentDidMount() {
-    const context = this;
-    const progress = window.setTimeout(() => {
-      context.props.history.push(`/result/${this.user}`);
-    }, 1500);
-  }
-
   render() {
     return (
+      <React.Fragment>
       <main>
         <div className="progress">
           <div className="progress__content">
@@ -46,6 +41,8 @@ export default class Progress extends Component {
           </div>
         </div>
       </main>
+      <Footer text="© 2018 TweetCollage. All Rights Reserved." />
+      </React.Fragment>
     );
   }
 }
